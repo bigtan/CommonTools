@@ -1,1 +1,1 @@
-from .eventEngine import Signal, EventEngine
+from .core import Signal, EventEngine
