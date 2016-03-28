@@ -18,7 +18,7 @@ class EventEngine(object):
     def __run(self):
         while self.__active.is_set():
             try:
-                event = self.__queue.get(timeout=0.2)
+                event = self.__queue.get(timeout=1.0)
                 self.__process(event)
             except Empty:
                 pass
@@ -29,11 +29,9 @@ class EventEngine(object):
 
     def start(self):
         self.__active.set()
-
         self.__thread.start()
 
     def stop(self):
-
         self.__active.clear()
         self.__thread.join()
 
