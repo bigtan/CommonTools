@@ -1,8 +1,8 @@
 from Queue import Queue, Empty
-from threading import Thread, Event
+from threading import Thread, Event as Event_
 
 
-class Signal(object):
+class Event(object):
     def __init__(self, name=None):
         self.name = name
         self.data = {}
@@ -12,7 +12,7 @@ class EventEngine(object):
     def __init__(self):
         self.__queue = Queue()
         self.__thread = Thread(target=self.__run)
-        self.__active = Event()
+        self.__active = Event_()
         self.__handlers = {}
 
     def __run(self):
