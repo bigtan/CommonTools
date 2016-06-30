@@ -111,7 +111,7 @@ class Performance(object):
 
     @calmar_ratio.getter
     def calmar_ratio(self):
-        ratio = self.cagr / self.max_drawdown
+        ratio = self.cagr / self.max_drawdown.drawdown
 
         return ratio
 
